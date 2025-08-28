@@ -1,0 +1,54 @@
+From 7489d6cd0fe1814f293db1c1353182e52daed67c Mon Sep 17 00:00:00 2001
+From: minaripenguin <minaripenguin@users.noreply.github.com>
+Date: Fri, 3 Jan 2025 15:38:20 +0800
+Subject: [PATCH] aconfig: Disable FRP enforcement
+
+Signed-off-by: minaripenguin <minaripenguin@users.noreply.github.com>
+
+--- a/vendor/lineage/release/aconfig/bp1a/Android.bp
++++ b/vendor/lineage/release/aconfig/bp1a/Android.bp
+@@ -17,6 +17,7 @@
+     name: "aconfig_value_set-lineage-bp1a",
+     values: [
+         "aconfig-values-bp1a-android.hardware.biometrics-all",
++	"aconfig-values-bp1a-android.security-all",
+         "aconfig-values-bp1a-com.android.window.flags-all",
+     ],
+ }
+
+--- a/vendor/lineage/release/aconfig/bp1a/android.security/Android.bp
++++ b/vendor/lineage/release/aconfig/bp1a/android.security/Android.bp
+@@ -0,0 +1,22 @@
++// Copyright 2024 Google Inc. All rights reserved.
++//
++// Licensed under the Apache License, Version 2.0 (the "License");
++// you may not use this file except in compliance with the License.
++// You may obtain a copy of the License at
++//
++//     http://www.apache.org/licenses/LICENSE-2.0
++//
++// Unless required by applicable law or agreed to in writing, software
++// distributed under the License is distributed on an "AS IS" BASIS,
++// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++// See the License for the specific language governing permissions and
++// limitations under the License.
++
++aconfig_values {
++  name: "aconfig-values-bp1a-android.security-all",
++  package: "android.security",
++  srcs: [
++    "*_flag_values.textproto",
++  ]
++}
++
+
+--- a/vendor/lineage/release/aconfig/bp1a/android.security/frp_enforcement_flag_values.textproto
++++ b/vendor/lineage/release/aconfig/bp1a/android.security/frp_enforcement_flag_values.textproto
+@@ -0,0 +1,6 @@
++flag_value {
++  package: "android.security"
++  name: "frp_enforcement"
++  state: DISABLED
++  permission: READ_ONLY
++}
+
