@@ -8,6 +8,9 @@
     <project name="LineageOS/android_hardware_xiaomi" path="hardware/xiaomi" remote="github" revision="lineage-22.2" />
     <project name="LineageOS/android_hardware_sony_timekeep" path="hardware/sony/timekeep" remote="github" revision="lineage-22.2" />
     
+
+    <remove-project path="bootable/recovery" />
+    <project path="bootable/recovery" name="ximi-daisy-test/android_bootable_recovery" remote="github" revision="lineage-22.2-twkd" />
     
     <remove-project path="prebuilts/bazel/darwin-x86_64" />
     <remove-project path="prebuilts/clang/host/darwin-x86" />
