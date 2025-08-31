@@ -1,0 +1,64 @@
+https://github.com/LineageOS/android_vendor_lineage/commit/bbef24020ffba9a0669f745d22ae9e8f9916d497
+From bbef24020ffba9a0669f745d22ae9e8f9916d497 Mon Sep 17 00:00:00 2001
+From: proxer05 <proxer05@pm.me>
+Date: Sun, 16 Mar 2025 12:16:41 +0100
+Subject: [PATCH] release: Enable new QS panel
+
+Change-Id: I17549a32afd6542abb15e8b6eff32b9133d8ce7f
+
+--- a/vendor/lineage/release/aconfig/bp1a/Android.bp
++++ b/vendor/lineage/release/aconfig/bp1a/Android.bp
+@@ -18,6 +18,7 @@
+     values: [
+         "aconfig-values-bp1a-android.hardware.biometrics-all",
+ 	"aconfig-values-bp1a-android.security-all",
++	"aconfig-values-bp1a-com.android.systemui-all",
+         "aconfig-values-bp1a-com.android.window.flags-all",
+     ],
+ }
+
+--- a/vendor/lineage/release/aconfig/bp1a/com.android.systemui/Android.bp
++++ b/vendor/lineage/release/aconfig/bp1a/com.android.systemui/Android.bp
+@@ -0,0 +1,21 @@
++// Copyright 2025 Google Inc. All rights reserved.
++//
++// Licensed under the Apache License, Version 2.0 (the "License");
++// you may not use this file except in compliance with the License.
++// You may obtain a copy of the License at
++//
++//     http://www.apache.org/licenses/LICENSE-2.0
++//
++// Unless required by applicable law or agreed to in writing, software
++// distributed under the License is distributed on an "AS IS" BASIS,
++// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++// See the License for the specific language governing permissions and
++// limitations under the License.
++
++aconfig_values {
++  name: "aconfig-values-bp1a-com.android.systemui-all",
++  package: "com.android.systemui",
++  srcs: [
++    "*_flag_values.textproto",
++  ]
++}
+
+--- a/vendor/lineage/release/aconfig/bp1a/com.android.systemui/qs_ui_refactor_compose_fragment_flag_values.textproto
++++ b/vendor/lineage/release/aconfig/bp1a/com.android.systemui/qs_ui_refactor_compose_fragment_flag_values.textproto
+@@ -0,0 +1,6 @@
++flag_value {
++  package: "com.android.systemui"
++  name: "qs_ui_refactor_compose_fragment"
++  state: ENABLED
++  permission: READ_ONLY
++}
+
+--- a/vendor/lineage/release/aconfig/bp1a/com.android.systemui/qs_ui_refactor_flag_values.textproto
++++ b/vendor/lineage/release/aconfig/bp1a/com.android.systemui/qs_ui_refactor_flag_values.textproto
+@@ -0,0 +1,6 @@
++flag_value {
++  package: "com.android.systemui"
++  name: "qs_ui_refactor"
++  state: ENABLED
++  permission: READ_ONLY
++}
+
