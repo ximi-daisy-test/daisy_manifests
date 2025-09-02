@@ -2,7 +2,7 @@
 <manifest>
     <project name="ximi-daisy-test/android_device_xiaomi_daisy" path="device/xiaomi/daisy" remote="github" revision="lineage-22.2-bp1a" />
     <project name="ximi-daisy-test/android_device_xiaomi_msm8953-common" path="device/xiaomi/msm8953-common" remote="github" revision="lineage-22.2" />
-    <project name="ximi-daisy-test/proprietary_vendor_xiaomi_msm8953-common" path="vendor/xiaomi/msm8953-common" remote="github" revision="lineage-22.2" />
+    <project name="ximi-daisy-test/proprietary_vendor_xiaomi_msm8953-common" path="vendor/xiaomi/msm8953-common" remote="github" revision="lineage-22.2-bp1a" />
     <project name="ximi-daisy-test/android_vendor_fingerprint_opensource_interfaces" path="vendor/fingerprint/opensource/interfaces" remote="github" revision="lineage-22.2" />
     <project name="ximi-daisy-test/proprietary_vendor_xiaomi_daisy" path="vendor/xiaomi/daisy" remote="github" revision="lineage-22.2" />
     <project name="LineageOS/android_hardware_xiaomi" path="hardware/xiaomi" remote="github" revision="lineage-22.2" />
