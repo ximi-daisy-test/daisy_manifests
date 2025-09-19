@@ -1,0 +1,46 @@
+diff -ruN a/vendor/lineage/release/aconfig/bp2a/Android.bp b/vendor/lineage/release/aconfig/bp2a/Android.bp
+--- a/vendor/lineage/release/aconfig/bp2a/Android.bp	2025-09-17 21:53:28.945656342 +0800
++++ b/vendor/lineage/release/aconfig/bp2a/Android.bp	2025-09-17 21:54:14.154164708 +0800
+@@ -17,6 +17,7 @@
+     name: "aconfig_value_set-lineage-bp2a",
+     values: [
+         "aconfig-values-bp2a-android.app-all",
++	"aconfig-values-bp2a-android.security-all",
+         "aconfig-values-bp2a-android.media.codec-all",
+         "aconfig-values-bp2a-android.media.tv.flags-all",
+         "aconfig-values-bp2a-com.android.launcher3-all",
+diff -ruN a/vendor/lineage/release/aconfig/bp2a/android.security/Android.bp b/vendor/lineage/release/aconfig/bp2a/android.security/Android.bp
+--- a/vendor/lineage/release/aconfig/bp2a/android.security/Android.bp	1970-01-01 08:00:00.000000000 +0800
++++ b/vendor/lineage/release/aconfig/bp2a/android.security/Android.bp	2025-09-17 21:55:01.444650672 +0800
+@@ -0,0 +1,21 @@
++// Copyright 2024 Google Inc. All rights reserved.
++//
++// Licensed under the Apache License, Version 2.0 (the "License");
++// you may not use this file except in compliance with the License.
++// You may obtain a copy of the License at
++//
++//     http://www.apache.org/licenses/LICENSE-2.0
++//
++// Unless required by applicable law or agreed to in writing, software
++// distributed under the License is distributed on an "AS IS" BASIS,
++// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++// See the License for the specific language governing permissions and
++// limitations under the License.
++
++aconfig_values {
++  name: "aconfig-values-bp2a-android.security-all",
++  package: "android.security",
++  srcs: [
++    "*_flag_values.textproto",
++  ]
++}
+diff -ruN a/vendor/lineage/release/aconfig/bp2a/android.security/frp_enforcement_flag_values.textproto b/vendor/lineage/release/aconfig/bp2a/android.security/frp_enforcement_flag_values.textproto
+--- a/vendor/lineage/release/aconfig/bp2a/android.security/frp_enforcement_flag_values.textproto	1970-01-01 08:00:00.000000000 +0800
++++ b/vendor/lineage/release/aconfig/bp2a/android.security/frp_enforcement_flag_values.textproto	2025-09-17 21:55:26.726375981 +0800
+@@ -0,0 +1,6 @@
++flag_value {
++  package: "android.security"
++  name: "frp_enforcement"
++  state: DISABLED
++  permission: READ_ONLY
++}

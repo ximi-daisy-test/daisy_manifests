@@ -1,0 +1,17 @@
+do not build adb root
+
+--- a/vendor/lineage/config/common.mk
++++ b/vendor/lineage/config/common.mk
+@@ -217,9 +217,10 @@
+ endif
+ 
+ # Root
++ifneq ($(TARGET_BUILD_VARIANT),user)
+ PRODUCT_PACKAGES += \
+     adb_root
+-ifneq ($(TARGET_BUILD_VARIANT),user)
++
+ ifeq ($(WITH_SU),true)
+ PRODUCT_PACKAGES += \
+     su
+
