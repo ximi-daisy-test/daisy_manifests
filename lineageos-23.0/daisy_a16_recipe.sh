@@ -1,3 +1,5 @@
+# manifest is from https://github.com/NeedAlt-Room
+
 git clone --depth=1 --branch 16 https://github.com/ximi-daisy-test/android_device_xiaomi_daisy device/xiaomi/daisy
 
 git clone --depth=1 --branch 16 https://github.com/ximi-daisy-test/android_device_xiaomi_msm8953-common device/xiaomi/msm8953-common
@@ -26,12 +28,6 @@ git clone --depth=1 https://github.com/LineageOS/android_external_ant-wireless_a
 # apply this fix on external/ant-wireless/ant_service
 # https://github.com/LineageOS/android_external_ant-wireless_ant_service/commit/808676c8bf84dddec22c76fdff880e6e394c366e
 
-
-# for Wifi fix add teh following
-git clone --depth=1 --branch lineage-22.2-caf https://github.com/LineageOS/android_hardware_qcom_wlan hardware/qcom-caf/wlan
-
-git clone --branch lineage-23.0 https://github.com/LineageOS/android_hardware_qcom_wlan hardware/qcom/wlan
-# revert 640d7bc56efbf97d2d8105a2a3202a0c2a4cbe80 - note from rennzalt
-
-git clone --branch lineage-23.0 https://github.com/LineageOS/android_hardware_qcom-caf_common/ hardware/qcom-caf/common 
-# revert b5edacbb0a9edb23c32b1d55935425afea13bcab - note from rennzalt
+# for recovery, add bypasses
+# apply on bootable/recovery
+# https://github.com/ximi-daisy-test/android_bootable_recovery/commit/74a50ca6db16ac4c6b7353e9d50f035e19891ff8
