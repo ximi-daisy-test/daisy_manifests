@@ -1,0 +1,13 @@
+--- a/frameworks/base/packages/SystemUI/src/com/android/systemui/screenrecord/ScreenRecordPermissionContentManager.kt	2026-01-27 22:00:34.735654036 +0800
++++ b/frameworks/base/packages/SystemUI/src/com/android/systemui/screenrecord/ScreenRecordPermissionContentManager.kt	2026-01-27 22:01:03.903364028 +0800
+@@ -240,7 +240,7 @@
+             else ScreenRecordingAudioSource.NONE
+         val lowQuality = lowQualitySwitch.isChecked
+         val longerDuration = longerDurationSwitch.isChecked
+-        val hevc = hevcSwitch.isChecked
++       val hevc = false
+         val startIntent =
+             PendingIntent.getForegroundService(
+                 userContext,
+[1]+  Done                    gedit frameworks/base/packages/SystemUI/src/com/android/systemui/screenrecord/ScreenRecordPermissionContentManager.kt
+

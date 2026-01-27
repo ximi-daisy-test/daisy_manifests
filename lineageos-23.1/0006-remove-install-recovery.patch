@@ -1,0 +1,14 @@
+--- a/build/make/tools/releasetools/common.py	2025-09-03 22:11:50.705672815 +0800
++++ b/build/make/tools/releasetools/common.py	2025-09-03 22:12:27.010159942 +0800
+@@ -3912,10 +3912,6 @@
+        'recovery_type': recovery_type,
+        'recovery_device': recovery_device + '$(getprop ro.boot.slot_suffix)'}
+ 
+-  # The install script location moved from /system/etc to /system/bin in the L
+-  # release. In the R release it is in VENDOR/bin or SYSTEM/vendor/bin.
+-  sh_location = os.path.join(sh_dir, "install-recovery.sh")
+-
+   logger.info("putting script in %s", sh_location)
+ 
+   output_sink(sh_location, sh.encode())
+
