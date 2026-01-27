@@ -1,0 +1,44 @@
+From 9be9c817bdea050cab93732a6db65837a0116609 Mon Sep 17 00:00:00 2001
+From: Tashfin Shakeer Rhythm <tashfinshakeerrhythm@gmail.com>
+Date: Fri, 9 Jan 2026 12:18:25 +0600
+Subject: [PATCH] sysmeminfo: Skip per process GPU memory usage trace if
+ disabled in kernel
+
+We do not need this per process GPU memory usage tracing debug cruft that relies
+on BPF check to retrieve RO map of the gpu mem file. Failing to get the gpu mem
+file created by tracepoints in kernel results in the following crash and soft
+reboots the device.
+
+This is not efficient at all. If CONFIG_TRACE_GPU_MEM which depends on
+CONFIG_TRACEPOINTS is not enabled in kernel, then map_gpuMem_gpu_mem_total_map
+will not be generated. Instead of crashing the system, just bail out if the file
+does not exist.
+
+Signed-off-by: Tashfin Shakeer Rhythm <tashfinshakeerrhythm@gmail.com>
+--- a/system/memory/libmeminfo/sysmeminfo.cpp	2026-01-27 22:07:06.249370565 +0800
++++ b/system/memory/libmeminfo/sysmeminfo.cpp	2026-01-27 22:07:33.091152075 +0800
+@@ -379,6 +379,11 @@
+ #if defined(__ANDROID__) && !defined(__ANDROID_APEX__) && !defined(__ANDROID_VNDK__)
+     static constexpr const char kBpfGpuMemTotalMap[] = "/sys/fs/bpf/map_gpuMem_gpu_mem_total_map";
+ 
++    if (access(kBpfGpuMemTotalMap, F_OK)) {
++        LOG(ERROR) << "ReadPerProcessGpuMem: GpuMem tracing is disabled in kernel. Skipping!";
++        return false;
++    }
++
+     // Use the read-only wrapper BpfMapRO to properly retrieve the read-only map.
+     auto map = bpf::BpfMapRO<uint64_t, uint64_t>(kBpfGpuMemTotalMap);
+     if (!map.isValid()) {
+@@ -428,6 +433,11 @@
+ #if defined(__ANDROID__) && !defined(__ANDROID_APEX__) && !defined(__ANDROID_VNDK__)
+     static constexpr const char kBpfGpuMemTotalMap[] = "/sys/fs/bpf/map_gpuMem_gpu_mem_total_map";
+ 
++    if (access(kBpfGpuMemTotalMap, F_OK)) {
++        LOG(ERROR) << "ReadProcessGpuUsageKb: GpuMem tracing is disabled in kernel. Skipping!";
++        return false;
++    }
++
+     uint64_t gpu_mem;
+ 
+     // BPF Key [32-bits GPU ID | 32-bits PID]
+
