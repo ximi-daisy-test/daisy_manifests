@@ -1,10 +1,10 @@
 # manifest is from https://github.com/NeedAlt-Room
 
-git clone --depth=1 --branch 16 https://github.com/ximi-daisy-test/android_device_xiaomi_daisy device/xiaomi/daisy
+git clone --depth=1 --branch 16.2 https://github.com/ximi-daisy-test/android_device_xiaomi_daisy device/xiaomi/daisy
 
-git clone --depth=1 --branch 16 https://github.com/ximi-daisy-test/android_device_xiaomi_msm8953-common device/xiaomi/msm8953-common
+git clone --depth=1 --branch 16.2 https://github.com/ximi-daisy-test/android_device_xiaomi_msm8953-common device/xiaomi/msm8953-common
 
-git clone --depth=1 --branch 16 https://github.com/ximi-daisy-test/proprietary_vendor_xiaomi_msm8953-common vendor/xiaomi/msm8953-common
+git clone --depth=1 --branch 16.2 https://github.com/ximi-daisy-test/proprietary_vendor_xiaomi_msm8953-common vendor/xiaomi/msm8953-common
 
 git clone --depth=1 --branch 16 https://github.com/ximi-daisy-test/proprietary_vendor_xiaomi_daisy vendor/xiaomi/daisy
 

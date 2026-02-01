@@ -1,0 +1,19 @@
+// https://github.com/LineageOS/android_hardware_qcom-caf_common/blob/lineage-23.2/os_pickup.bp
+// https://github.com/LineageOS/android_hardware_qcom-caf_common/blob/lineage-23.2/os_pickup.mk
+
+--- /dev/null	2026-02-08 09:51:08.164235911 +0800
++++ hardware/qcom-caf/msm8996/Android.bp	2026-02-08 18:38:47.863454262 +0800
+@@ -0,0 +1,2 @@
++soong_namespace {
++}
+
+--- /dev/null	2026-02-08 09:51:08.164235911 +0800
++++ hardware/qcom-caf/msm8996/Android.mk	2026-02-08 18:39:04.272272311 +0800
+@@ -0,0 +1,6 @@
++LOCAL_PATH := $(call my-dir)
++ifneq ($(filter $(LOCAL_PATH),$(PRODUCT_SOONG_NAMESPACES)),)
++ifneq ($(BUILD_WITHOUT_VENDOR), true)
++include $(call first-makefiles-under,$(LOCAL_PATH))
++endif
++endif
+
