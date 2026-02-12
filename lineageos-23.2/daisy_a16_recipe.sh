@@ -1,10 +1,10 @@
 # manifest is from https://github.com/NeedAlt-Room
 
-git clone --depth=1 --branch 16.1 https://github.com/ximi-daisy-test/android_device_xiaomi_daisy device/xiaomi/daisy
+git clone --depth=1 --branch 16.2 https://github.com/ximi-daisy-test/android_device_xiaomi_daisy device/xiaomi/daisy
 
-git clone --depth=1 --branch 16.1 https://github.com/ximi-daisy-test/android_device_xiaomi_msm8953-common device/xiaomi/msm8953-common
+git clone --depth=1 --branch 16.2 https://github.com/ximi-daisy-test/android_device_xiaomi_msm8953-common device/xiaomi/msm8953-common
 
-git clone --depth=1 --branch 16.1 https://github.com/ximi-daisy-test/proprietary_vendor_xiaomi_msm8953-common vendor/xiaomi/msm8953-common
+git clone --depth=1 --branch 16.2 https://github.com/ximi-daisy-test/proprietary_vendor_xiaomi_msm8953-common vendor/xiaomi/msm8953-common
 
 git clone --depth=1 --branch 16 https://github.com/ximi-daisy-test/proprietary_vendor_xiaomi_daisy vendor/xiaomi/daisy
 
@@ -14,10 +14,9 @@ git clone --depth=1 --branch lineage-23.2 https://github.com/LineageOS/android_h
 
 # NOTE:
 # kernel tree
-# git clone --depth=1 --branch lineage-23.0-bpf-test https://github.com/ximi-daisy-test/android_kernel_xiaomi_msm8953/ kernel/xiaomi/msm8953
+# git clone --depth=1 --branch lineage-23.2-bpf https://github.com/ximi-daisy-test/android_kernel_xiaomi_msm8953/ kernel/xiaomi/msm8953
 
-
-##
+# los replacements
 
 # git clone --depth=1 --branch lineage-23.2-tweaked https://github.com/ximi-daisy-test/android_build build/make
 
@@ -40,10 +39,6 @@ git clone --depth=1 --branch lineage-23.2 https://github.com/LineageOS/android_h
 
 # git clone --depth=1 --branch lineage-22.2-caf-msm8996 https://github.com/LineageOS/android_hardware_qcom_audio hardware/qcom-caf/msm8996/audio
 
+# git clone --depth=1 --branch lineage-23.2-tweaked https://github.com/ximi-daisy-test/android_vendor_lineage vendor/lineage
 
-# git clone --depth=1 --branch lineage-23.2-tweaked https://github.com/ximi-daisy-test/android_system_bpf system/bpf
-
-# git clone --depth=1 --branch lineage-23.2-tweaked https://github.com/ximi-daisy-test/android_packages_modules_Connectivity packages/modules/Connectivity
-
-
-# git clone --depth=1 --branch lineage-23.2-tweaked https://github.com/ximi-daisy-test/android_system_netd system/netd
+# git clone --depth=1 --branch lineage-23.2-tweaked https://github.com/ximi-daisy-test/android_bootable_recovery/ bootable/recovery
