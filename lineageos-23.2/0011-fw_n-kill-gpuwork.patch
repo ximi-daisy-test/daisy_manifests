@@ -1,0 +1,27 @@
+From a0c58149963eb7b6c302a539a2fd8359501b675b Mon Sep 17 00:00:00 2001
+From: UDPSendToFailed <udpsendtofailed@gmail.com>
+Date: Sat, 17 Jan 2026 21:39:15 +0100
+Subject: [PATCH] Hack for 3.18
+
+Change-Id: I1ea6cbd72cbbdff982a480fbf47a714c5576914b
+---
+ services/gpuservice/gpuwork/GpuWork.cpp | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/frameworks/native/services/gpuservice/gpuwork/GpuWork.cpp b/frameworks/native/services/gpuservice/gpuwork/GpuWork.cpp
+index ccd5f3690ea..5386c2143b4 100644
+--- a/frameworks/native/services/gpuservice/gpuwork/GpuWork.cpp
++++ b/frameworks/native/services/gpuservice/gpuwork/GpuWork.cpp
+@@ -117,6 +117,12 @@ GpuWork::~GpuWork() {
+ }
+ 
+ void GpuWork::initialize() {
++    if (!bpf::isAtLeastKernelVersion(6, 19, 0)) {
++        ALOGI("Legacy kernel detected. Disabling GpuWork BPF features.");
++        mInitialized.store(false);
++        return;
++    }
++
+     // Workaround b/347947040 by allowing time for statsd / bpf setup.
+     std::this_thread::sleep_for(std::chrono::seconds(30));
+ 

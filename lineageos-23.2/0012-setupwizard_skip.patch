@@ -1,0 +1,22 @@
+allow skip setupwizard on any build
+
+--- a/packages/apps/SetupWizard/src/org/lineageos/setupwizard/WelcomeActivity.java	2026-02-18 14:18:18.444810743 +0800
++++ b/packages/apps/SetupWizard/src/org/lineageos/setupwizard/WelcomeActivity.java	2026-02-18 14:18:33.709675159 +0800
+@@ -63,12 +63,10 @@
+                     getString(R.string.os_name)));
+         }
+ 
+-        if (Build.TYPE.equals("eng")) {
+-            skipButton.setVisibility(View.VISIBLE);
+-            skipButton.setOnClickListener(v -> {
+-                SetupWizardUtils.finishSetupWizard(WelcomeActivity.this);
+-            });
+-        }
++        skipButton.setVisibility(View.VISIBLE);
++        skipButton.setOnClickListener(v -> {
++            SetupWizardUtils.finishSetupWizard(WelcomeActivity.this);
++        });
+     }
+ 
+     @Override
+
