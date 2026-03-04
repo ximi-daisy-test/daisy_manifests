@@ -1,0 +1,45 @@
+https://github.com/Ultra-Legacy-Hippeastrum/android_frameworks_base/commit/9a40fd9a99318c1e24fbeb36367407bbc11be6cb
+From 9a40fd9a99318c1e24fbeb36367407bbc11be6cb Mon Sep 17 00:00:00 2001
+From: Yaroslav Zviezda <acroreiser@gmail.com>
+Date: Mon, 23 Mar 2026 17:36:56 -0400
+Subject: [PATCH] hwui: return to ashmem
+
+Fixes "java.lang.RuntimeException: Could not copy bitmap to parcel blob." in music apps
+on album artwork displaying.
+
+Change-Id: Iba72b850c218800f2dd108d57066cedf4beae0d5
+---
+ libs/hwui/jni/Bitmap.cpp | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/frameworks/base/libs/hwui/jni/Bitmap.cpp b/frameworks/base/libs/hwui/jni/Bitmap.cpp
+index 03ffddfa91607..8cfe6dd158ca5 100644
+--- a/frameworks/base/libs/hwui/jni/Bitmap.cpp
++++ b/frameworks/base/libs/hwui/jni/Bitmap.cpp
+@@ -777,7 +777,7 @@ static binder_status_t writeBlob(AParcel* parcel, uint64_t bitmapId, const SkBit
+                                             bitmap.width(), bitmap.height(), size);
+         base::unique_fd fd;
+ 
+-        if (com::android::graphics::hwui::flags::bitmap_use_memfd()) {
++/*        if (com::android::graphics::hwui::flags::bitmap_use_memfd()) {
+             fd.reset(syscall(__NR_memfd_create, ashmemId.c_str(), MFD_CLOEXEC | MFD_ALLOW_SEALING));
+             if (fd.get() < 0) {
+                 return STATUS_NO_MEMORY;
+@@ -801,7 +801,7 @@ static binder_status_t writeBlob(AParcel* parcel, uint64_t bitmapId, const SkBit
+                 return STATUS_UNKNOWN_ERROR;
+             }
+ 
+-        } else {
++        } else { */
+             fd.reset(ashmem_create_region(ashmemId.c_str(), size));
+             if (fd.get() < 0) {
+                 return STATUS_NO_MEMORY;
+@@ -819,7 +819,7 @@ static binder_status_t writeBlob(AParcel* parcel, uint64_t bitmapId, const SkBit
+             if (immutable && ashmem_set_prot_region(fd.get(), PROT_READ) < 0) {
+                 return STATUS_UNKNOWN_ERROR;
+             }
+-        }
++//        }
+ 
+         // Workaround b/149851140 in AParcel_writeParcelFileDescriptor
+         int rawFd = fd.release();

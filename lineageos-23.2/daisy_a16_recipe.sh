@@ -26,7 +26,6 @@ git clone --depth=1 --branch lineage-23.2 https://github.com/LineageOS/android_h
 
 # git clone --depth=1 --branch lineage-23.2-tweaked https://github.com/ximi-daisy-test/android_hardware_qcom_wlan hardware/qcom/wlan
 # git clone --depth=1 --branch lineage-23.2-caf-tweaked https://github.com/ximi-daisy-test/android_hardware_qcom_wlan hardware/qcom-caf/wlan
-s
 
 # git clone --depth=1 --branch lineage-23.2-tweaked https://github.com/ximi-daisy-test/android_kernel_configs kernel/configs
 
@@ -35,9 +34,9 @@ s
 
 # git clone --depth=1 --branch lineage-22.2-caf-msm8996 https://github.com/LineageOS/android_hardware_qcom_media hardware/qcom-caf/msm8996/media
 
-# git clone --depth=1 --branch lineage-22.2-caf-msm8996 https://github.com/LineageOS/android_hardware_qcom_display hardware/qcom-caf/msm8996/display
+# git clone --depth=1 --branch lineage-23.2-caf-msm8996 https://github.com/ximi-daisy-test/android_hardware_qcom_display hardware/qcom-caf/msm8996/display
 
-# git clone --depth=1 --branch lineage-22.2-caf-msm8996 https://github.com/LineageOS/android_hardware_qcom_audio hardware/qcom-caf/msm8996/audio
+# git clone --depth=1 --branch lineage-23.2-caf-msm8996 https://github.com/ximi-daisy-test/android_hardware_qcom_audio hardware/qcom-caf/msm8996/audio
 
 # git clone --depth=1 --branch lineage-23.2-tweaked https://github.com/ximi-daisy-test/android_vendor_lineage vendor/lineage
 

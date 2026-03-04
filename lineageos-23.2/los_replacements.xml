@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+
+	<remove-project path="prebuilts/clang/host/darwin-x86" />
+	<remove-project path="prebuilts/go/darwin-x86" />
+
+	<remove-project name="LineageOS/android_build" />
+	<project path="build/make" name="ximi-daisy-test/android_build" remote="github" revision="lineage-23.2-tweaked" />
+
+	<remove-project name="platform/hardware/interfaces" />
+	<project path="hardware/interfaces" name="ximi-daisy-test/android_hardware_interfaces" remote="github" revision="lineage-23.2-tweaked" />
+
+	<remove-project name="LineageOS/android_kernel_configs" />
+	<project path="kernel/configs" name="ximi-daisy-test/android_kernel_configs" remote="github" revision="lineage-23.2-tweaked" />
+
+	<remove-project name="LineageOS/android_vendor_lineage" />
+	<project path="vendor/lineage" name="ximi-daisy-test/android_vendor_lineage" remote="github" revision="lineage-23.2-tweaked" />
+
+	<remove-project name="LineageOS/android_bootable_recovery" />
+	<project path="bootable/recovery" name="ximi-daisy-test/android_bootable_recovery" remote="github" revision="lineage-23.2-tweaked" />
+
+	<remove-project name="platform/packages/modules/Connectivity" />
+	<remove-project name="platform/system/bpf" />
+	<project path="packages/modules/Connectivity" name="ximi-daisy-test/android_packages_modules_Connectivity" remote="github" revision="lineage-23.2-tweaked" />
+	<project path="system/bpf" name="ximi-daisy-test/android_system_bpf" remote="github" revision="lineage-23.2-tweaked" />
+
+	<remove-project name="LineageOS/android_hardware_qcom_media" />
+	<remove-project name="LineageOS/android_hardware_qcom_display" />
+	<remove-project name="LineageOS/android_hardware_qcom_audio" />
+
+	<project path="hardware/qcom-caf/msm8996/media" name="LineageOS/android_hardware_qcom_media" remote="github" revision="lineage-22.2-caf-msm8996" />
+	<project path="hardware/qcom-caf/msm8996/display" name="ximi-daisy-test/android_hardware_qcom_display" remote="github" revision="lineage-23.2-caf-msm8996" />
+	<project path="hardware/qcom-caf/msm8996/audio" name="ximi-daisy-test/android_hardware_qcom_audio" remote="github" revision="lineage-23.2-caf-msm8996" />
+
+	<remove-project name="LineageOS/android_hardware_qcom_wlan" />
+	<project path="hardware/qcom/wlan" name="ximi-daisy-test/android_hardware_qcom_wlan" remote="github" revision="lineage-23.2-tweaked" />
+	<project path="hardware/qcom-caf/wlan" name="ximi-daisy-test/android_hardware_qcom_wlan" remote="github" revision="lineage-23.2-caf-tweaked" />
+
+	<remove-project name="LineageOS/android_hardware_qcom-caf_common" />
+	<project path="hardware/qcom-caf/common" name="ximi-daisy-test/android_hardware_qcom-caf_common" remote="github" revision="lineage-23.2-tweaked" />
+
+</manifest>
